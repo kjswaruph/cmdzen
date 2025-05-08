@@ -1,17 +1,16 @@
 package io.cmdzen.cli.commands;
 
-import io.cmdzen.cli.model.CommandHistory;
 import io.cmdzen.cli.services.CommandHistoryService;
 import org.springframework.shell.command.annotation.Command;
 
 import java.io.IOException;
 
 @Command(group = "Util")
-public class LocalHistory {
+public class LocalHistoryCommand {
 
     private CommandHistoryService commandHistoryService;
 
-    public LocalHistory(CommandHistoryService commandHistoryService) {
+    public LocalHistoryCommand(CommandHistoryService commandHistoryService) {
         this.commandHistoryService = commandHistoryService;
     }
 
