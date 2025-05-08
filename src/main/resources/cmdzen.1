@@ -1,0 +1,87 @@
+.\" Manpage for cmdzen
+.TH CMDZEN 1 "May 2025" "Version 1.0" "CmdZen Manual"
+.SH NAME
+cmdzen \- AI-powered Linux assistant for command explanation, recommendations, and guided workflows
+.SH SYNOPSIS
+.B cmdzen
+[\fICOMMAND\fR] [\fIOPTIONS\fR]
+.SH DESCRIPTION
+CmdZen is an intelligent command-line assistant that helps new Linux users understand, fix, and discover terminal commands.
+
+It offers features like real-time command explanation, error diagnostics, workflow-based recommendations, and interactive guided setup for Linux distributions.
+
+.SH COMMANDS
+.TP
+.B explain <command>
+Explain the given command in human-friendly language using AI.
+
+.TP
+.B fix <error>
+Get suggestions to fix common Linux command errors.
+
+.TP
+.B recommend
+Receive recommended commands based on recent activity or workflow context.
+
+.TP
+.B install-guide
+Get step-by-step installation guidance for popular hard Linux distributions.
+
+.TP
+.B create-command
+Interactively create a custom command or alias for repeated tasks.
+
+.TP
+.B history
+View and search through past explained commands and recommendations.
+
+.TP
+.B clear-cache
+Clear CmdZen's local history and cache data.
+
+.TP
+.B help
+Show help text.
+
+.TP
+.B version
+Display the current version of CmdZen.
+
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show help for a specific command or general usage.
+
+.TP
+.B \-v, \-\-version
+Display the version of CmdZen.
+
+.SH EXAMPLES
+.TP
+Explain a command:
+.B
+cmdzen explain "sudo apt update"
+.TP
+Fix a common error:
+.B
+cmdzen fix "permission denied"
+.TP
+Get recommended commands:
+.B
+cmdzen recommend
+.TP
+Start installation guide for Arch Linux:
+.B
+cmdzen install-guide arch
+
+.SH AUTHOR
+Developed by [Your Name]
+
+.SH BUGS
+Report issues at:
+.B
+https://github.com/kjswaruph/cmdzen/issues
+
+.SH SEE ALSO
+.B
+bash(1), zsh(1), man(1), apt(8), pacman(8)
