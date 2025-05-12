@@ -1,21 +1,24 @@
 package io.cmdzen.cli.commands;
 
-import io.cmdzen.cli.services.CommandHistoryService;
+import io.cmdzen.cli.services.ShellService;
 import org.springframework.shell.command.annotation.Command;
+import org.springframework.shell.command.annotation.Option;
 
 import java.io.IOException;
 
-@Command(group = "Util")
+@Command
 public class LocalHistoryCommand {
 
-    private CommandHistoryService commandHistoryService;
+    private ShellService commandHistoryService;
 
-    public LocalHistoryCommand(CommandHistoryService commandHistoryService) {
+    public LocalHistoryCommand(ShellService commandHistoryService) {
         this.commandHistoryService = commandHistoryService;
     }
 
-    @Command(command = "local", description = "Gives the local history")
-    public void getLocalHistory() throws IOException {
+    @Command(command = "local",
+            alias = "-l",
+            description = "Gives the local history")
+    public void getLocalHistory(@Option(shortNames = 'l') String arg) throws IOException {
         commandHistoryService.getLocalCommandHistory().getCommandHistory();
     }
 }

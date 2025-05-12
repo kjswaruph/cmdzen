@@ -11,7 +11,8 @@ import java.nio.file.Path;
 @Slf4j
 public class ShellEnvironment {
     private String shellName;
-    private Path historyFile;
+    private Path configPath;
+    private Path historyPath;
 
     public ShellEnvironment() {
         shellConfigure();
@@ -27,16 +28,20 @@ public class ShellEnvironment {
         String homeDir = System.getProperty("user.home");
         if (env.contains("bash")) {
             shellName = "bash";
-            historyFile = Path.of(homeDir, ".bash_history");
+            configPath = Path.of(homeDir, ".bashrc");
+            historyPath = Path.of(homeDir, ".bash_history");
         } else if (env.contains("zsh")) {
             shellName = "zsh";
-            historyFile = Path.of(homeDir, ".zsh_history");
+            configPath = Path.of(homeDir, ".zshrc");
+            historyPath = Path.of(homeDir, ".zsh_history");
         } else if (env.contains("fish")) {
             shellName = "fish";
-            historyFile = Path.of(homeDir, ".local/share/fish/fish_history");
+            configPath = Path.of(homeDir, ".config/fish/config.fish");
+            historyPath = Path.of(homeDir, ".local/share/fish/fish_history");
         } else if (env.contains("ksh")) {
             shellName = "ksh";
-            historyFile = Path.of(homeDir, ".ksh_history");
+            configPath = Path.of(homeDir, ".kshrc");
+            historyPath = Path.of(homeDir, ".ksh_history");
         } else {
             log.warn("Unsupported shell detected: {}", env);
             throw new UnsupportedShellException("Unsupported shell detected: " + env + "Create a issue on Github");
