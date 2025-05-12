@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export JAR_FILE_PATH="build/libs/cmdzen-cli*.jar"
-echo "alias my-command="/path/to/my-app-alias.sh"" >> ~/.bashrc
+echo "alias cmdzen="JAR_FILE_PATH"" >> ~/.bashrc
 
 while [ $string1 == $string2 ]; do
     
