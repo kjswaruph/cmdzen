@@ -14,14 +14,19 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class CommandHistoryServiceImpl implements CommandHistoryService {
+public class ShellServiceImpl implements ShellService {
 
     private History jLineHistory;
     private ShellEnvironment shellEnvironment;
 
-    public CommandHistoryServiceImpl(History jLineHistory) {
+    public ShellServiceImpl(History jLineHistory) {
         this.jLineHistory = jLineHistory;
         this.shellEnvironment = new ShellEnvironment();
+    }
+
+    @Override
+    public ShellEnvironment getShellEnvironment() {
+        return shellEnvironment;
     }
 
     @Override
@@ -36,13 +41,18 @@ public class CommandHistoryServiceImpl implements CommandHistoryService {
     @Override
     public CommandHistory getLocalCommandHistory() throws IOException {
         try {
-            Path path =     shellEnvironment.getHistoryFile();
+            Path path =  shellEnvironment.getHistoryPath();
             List<String> historyLines = Files.readAllLines(path);
             return new CommandHistory(historyLines.size(), historyLines);
         } catch (IOException e) {
-            log.error("Failed to read shell history from file: {}", shellEnvironment.getHistoryFile(), e);
+            log.error("Failed to read shell history from file: {}", shellEnvironment.getHistoryPath(), e);
             throw e;
         }
+    }
+
+    @Override
+    public Path getConfigPath() {
+        return shellEnvironment.getConfigPath();
     }
 
 }
