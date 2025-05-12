@@ -11,7 +11,6 @@ import org.springframework.shell.command.annotation.CommandScan;
 public class CmdzenCliApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(CmdzenCliApplication.class, args);
 	}
 

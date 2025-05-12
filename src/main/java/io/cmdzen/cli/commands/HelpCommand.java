@@ -1,12 +1,13 @@
 package io.cmdzen.cli.commands;
 
-import io.cmdzen.cli.model.CommandNames;
 import org.springframework.shell.command.annotation.Command;
 
-@Command(group = "Help All")
+@Command
 public class HelpCommand {
 
-    @Command(command = CommandNames.HELP, description = "Shows all commands")
+    @Command(command = "help",
+            alias = "-h",
+            description = "Shows all commands")
     public String cmdzMessage() {
         return """
                 CmdZen - YOUR LINUX COMMANDLINE ASSISTANT
