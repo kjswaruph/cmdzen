@@ -29,10 +29,13 @@ extra["springShellVersion"] = "3.4.0"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.shell:spring-shell-starter")
-//	implementation("org.springframework.boot:spring-boot-starter-webflux")
-//	testImplementation("io.projectreactor:reactor-test")
-//	implementation("org.springframework.ai:spring-ai-starter-model-ollama")
+	implementation("org.springframework.ai:spring-ai-starter-model-azure-openai")
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.springframework.ai:spring-ai-starter-vector-store-pgvector")
+	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+	developmentOnly("org.springframework.ai:spring-ai-spring-boot-docker-compose")
 	implementation("ch.qos.logback:logback-classic:1.5.18")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -41,6 +44,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.shell:spring-shell-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	//	testImplementation("io.projectreactor:reactor-test")
 }
 
 dependencyManagement {
