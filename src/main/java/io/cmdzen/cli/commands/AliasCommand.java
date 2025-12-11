@@ -44,7 +44,7 @@ public class AliasCommand {
                 if (modified) {
                     Files.write(configFile.toPath(), lines);
                     System.out.println("Alias updated to " + newAlias + ". Please run `source "+ configPath + "` or restart your terminal.");
-                    log.info("Alias updated to " + newAlias + ".");
+                    log.info("Alias updated to {}.", newAlias);
                 } else {
                     System.out.println("No matching alias found.");
                     log.info("No matching alias found.");

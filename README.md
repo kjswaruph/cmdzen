@@ -34,6 +34,8 @@ cd cmdzen
 
 ## 🚀 Quick Start
 
+### Basic Usage
+
 ```bash
 # Start CmdZen
 cmdzen
@@ -41,9 +43,39 @@ cmdzen
 # Get help
 cmdzen help
 
-# Explain a command
-cmdzen explain "ls -la"
+# Check version
+cmdzen version
 ```
+
+### Shell Integration (Recommended)
+
+Install shell integration for automatic error capture:
+
+```bash
+# Install shell integration
+cmdzen integrate
+
+# Reload your shell
+source ~/.bashrc  # or ~/.zshrc, etc.
+
+# Verify installation
+cmdzen integration-status
+```
+
+### Using the Solve Command
+
+```bash
+# Run any command that fails
+ls /nonexistent
+
+# Get AI-powered help instantly
+cmdzen solve
+
+# Or add context
+cmdzen solve "I'm trying to list a directory"
+```
+
+See [SHELL_INTEGRATION.md](SHELL_INTEGRATION.md) for detailed documentation.
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
