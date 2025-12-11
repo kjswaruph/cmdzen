@@ -11,6 +11,10 @@ public interface ShellService {
     ShellEnvironment getShellEnvironment();
     CommandHistory getCommandHistory();
     CommandHistory getLocalCommandHistory() throws IOException;
+    String getLastCommand();
     Path getConfigPath();
+    String getLastCommandOutput();
+    int getLastExitCode();
+    boolean injectShellIntegration();
 
 }
